@@ -1,5 +1,5 @@
 import { Flex } from "@chakra-ui/react";
-import Location from "../Location";
+import Location from "./Location";
 import NavComponent from "./components/Navbar";
 import "./App.css"
 

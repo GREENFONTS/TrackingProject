@@ -32,6 +32,8 @@ const Location = () => {
     }
   };
 
+  console.log(import.meta.env.VITE_GOOGLE_API_KEY);
+
   return (
     <Box bg="gray.200" p="5" h="100vh" width="100%">
       <Flex m="5" justifyContent="space-between" alignItems="center">
