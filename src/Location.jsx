@@ -8,8 +8,8 @@ const Location = () => {
   const [data, setData] = useState([
     {
       id: "55e43d24-b10a-417f-9cca-b891fd6335e0",
-      latitude: "12.005333",
-      longitude: "7.393462",
+      latitude: "5.393462",
+      longitude: "7.005333", 
       sender: "+2348132030908",
       created_at: "2023-08-16T22:58:23.936Z",
     },
@@ -22,7 +22,7 @@ const Location = () => {
 
   const GetLocation = async () => {
     try {
-      const res = await fetch("http://localhost:4000/api/sms");
+      const res = await fetch("https://gifts-circle.herokuapp.com/api/sms");
       const result = await res.json();
       if (result) {
         setData([...result, ...data]);
@@ -60,7 +60,7 @@ const Location = () => {
             <GoogleMap
               mapContainerClassName="map-container"
               center={center}
-              zoom={13}
+              zoom={14}
             >
               {data.map(({ id, latitude, longitude }) => {
                 return (
