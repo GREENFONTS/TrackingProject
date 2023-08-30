@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 /* global google */
 
 import { Box, Text, Flex, Button } from "@chakra-ui/react";
@@ -9,11 +10,11 @@ const Location = () => {
     {
       id: "55e43d24-b10a-417f-9cca-b891fd6335e0",
       latitude: "12.393462",
-      longitude: "12.005333", 
+      longitude: "12.005333",
       sender: "+2348132030908",
       created_at: "2023-08-16T22:58:23.936Z",
     },
-  ]
+  ];
   const [data, setData] = useState(init);
   const [currentLocation, setCurrentLocation] = useState(data[0]);
   const center = {
@@ -102,7 +103,13 @@ const Location = () => {
         </Flex>
         {/* )} */}
 
-        <Flex mt="5" justifyContent="space-between" gap="20px">
+        <Flex
+          mt="5"
+          justifyContent="space-between"
+          gap="20px"
+          w="100%"
+          flexWrap="wrap"
+        >
           {data.length > 0 ? (
             data.map((ele, index) => {
               return (
