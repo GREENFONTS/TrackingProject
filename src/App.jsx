@@ -1,14 +1,19 @@
-import { Flex } from "@chakra-ui/react";
+import "./App.css";
+import Layout from "./Layout";
+import GetLocation from "./GetLocation";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
 import Location from "./Location";
-import NavComponent from "./components/Navbar";
-import "./App.css"
 
 function App() {
   return (
-    <Flex flexDirection="column">
-      <NavComponent />
-      <Location />
-    </Flex>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index path="" element={<Location />} />
+          <Route exact path="/local" element={<GetLocation />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

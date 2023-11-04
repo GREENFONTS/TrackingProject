@@ -18,8 +18,8 @@ const Location = () => {
   const [data, setData] = useState(init);
   const [currentLocation, setCurrentLocation] = useState(data[0]);
   const center = {
-    lng: parseFloat(currentLocation.latitude.replace("\r\n", "")),
-    lat: parseFloat(currentLocation.longitude.replace("\r\n", "")),
+    lng: parseFloat(currentLocation.longitude),
+    lat: parseFloat(currentLocation.latitude),
   };
 
   const GetLocation = async () => {
@@ -27,12 +27,14 @@ const Location = () => {
       const res = await fetch("https://gifts-circle.herokuapp.com/api/sms");
       const result = await res.json();
       if (result) {
-        setData([...result, ...data]);
+        setData([...result]);
       }
     } catch (error) {
       console.log(error);
     }
   };
+
+  console.log(currentLocation)
 
   return (
     <Box bg="gray.200" p="5" h="100vh" width="100%">
@@ -65,13 +67,14 @@ const Location = () => {
               zoom={14}
             >
               {data.map(({ id, latitude, longitude }) => {
+                
                 return (
                   <>
                     <Marker
                       key={id}
                       position={{
-                        latitude: parseFloat(longitude),
-                        longitude: parseFloat(latitude),
+                        latitude: parseFloat(latitude),
+                        longitude: parseFloat(longitude),
                       }}
                     />
 
